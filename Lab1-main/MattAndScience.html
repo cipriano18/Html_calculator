@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematicas y Ciencias</title>
+    <link href ="./assets/dist/css/bootstrap.main.css" rel="styleheet">
+    <link rel="stylesheet" href="MatScieStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        form {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<script src="functions-calculator.js"></script>
+<script src="script.js"></script>
+
+<body style="background-color: #121212; color: rgb(255, 255, 255);">
+    
+    <header class="header">
+        <h1 class="titulo">Matemáticas y Ciencias</h1>
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i>
+        </a>
+    </header>
+    
+      <h1 class="titulo2" style="margin-top: 120px;">Calculadoras</h1>
+      <h4 class="titulo2" style="margin-bottom: -70px;">Básica, números primos, fracciones</h4>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+    <!-- Caja Calculadora -->
+    <div class="col-12 col-lg-4">
+        <div class="card box-shadow mx-auto my-5" style="width: 18rem; height: 30rem;overflow: hidden;">
+          <div class="card-body" style="background-color: #343a40;">
+            <h5 class="card-title" style="color: aliceblue;">Calculadora Básica</h5>
+            <hr>
+            <div class="calculator">
+              <input id="display" class="form-control mb-2" type="text" disabled>
+              <div class="buttons">
+                <button class="btn btn-dark" onclick="appendNumber('1')">1</button>
+                <button class="btn btn-dark" onclick="appendNumber('2')">2</button>
+                <button class="btn btn-dark" onclick="appendNumber('3')">3</button>
+                <button class="btn btn-dark" onclick="setOperation('+')">+</button>
+                
+                <button class="btn btn-dark" onclick="appendNumber('4')">4</button>
+                <button class="btn btn-dark" onclick="appendNumber('5')">5</button>
+                <button class="btn btn-dark" onclick="appendNumber('6')">6</button>
+                <button class="btn btn-dark" onclick="setOperation('-')">-</button>
+                
+                <button class="btn btn-dark" onclick="appendNumber('7')">7</button>
+                <button class="btn btn-dark" onclick="appendNumber('8')">8</button>
+                <button class="btn btn-dark" onclick="appendNumber('9')">9</button>
+                <button class="btn btn-dark" onclick="setOperation('*')">*</button>
+                
+                <button class="btn btn-dark" onclick="appendNumber('0')">0</button>
+                <button class="btn btn-dark" onclick="clearDisplay()">C</button>
+                <button class="btn btn-dark" onclick="calculate()">=</button>
+                <button class="btn btn-dark" onclick="setOperation('/')">/</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verificador de Números Primos -->
+<div class="col-12 col-lg-4">
+    <div class="card box-shadow mx-auto my-5" style="width: 18rem; height: 30rem; overflow: hidden;">
+        <div class="card-body" style="background-color: #343a40; color: aliceblue;">
+            <h5 class="card-title" style="color: aliceblue;">Verificador de Números Primos</h5>
+            <hr>
+            <form id="primeChecker">
+                <div class="mb-3">
+                    <label for="primeValue" class="form-label">Número:</label>
+                    <input type="number" class="form-control" id="primeValue" placeholder="Ingresa un número" style="background-color: #434343; color: azure;">
+                </div>
+                <button type="button" class="btn btn-primary" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);" onclick="checkPrime()">Verificar</button>
+            </form>
+            <div class="mt-3">
+                <p id="primeResult" class="card-text">Resultado: --</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Calculadora de Fracciones -->
+<div class="col-12 col-lg-4">
+    <div class="card box-shadow mx-auto my-5" style="width: 18rem; height: 40rem; overflow: hidden;">
+        <div class="card-body" style="background-color: #343a40; color: rgb(255, 255, 255);">
+            <h5 class="card-title" style="color: aliceblue;">Calculadora de Fracciones</h5>
+            <hr>
+            <form id="fractionCalculator">
+                <div class="mb-3">
+                    <label class="form-label">Fracción 1:</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control text-center" id="num1" placeholder="Numerador" 
+                            style="background-color: #434343; color: azure; width: 40%;">
+                    </div>
+                    <div class="text-center">
+                        <span style="color: white; font-size: 20px;">───────</span> <!-- Línea divisoria -->
+                    </div>
+                    <div class="input-group">
+                        <input type="number" class="form-control text-center" id="den1" placeholder="Denominador" 
+                            style="background-color: #434343; color: azure; width: 40%;">
+                    </div>
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Operación:</label>
+                    <select class="form-select" id="operation" style="background-color: #434343; color: azure;">
+                        <option value="add">Suma (+)</option>
+                        <option value="subtract">Resta (-)</option>
+                        <option value="multiply">Multiplicación (×)</option>
+                        <option value="divide">División (÷)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fracción 2:</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control text-center" id="num2" placeholder="Numerador" 
+                            style="background-color: #434343; color: azure; width: 40%;">
+                    </div>
+                    <div class="text-center">
+                        <span style="color: white; font-size: 20px;">───────</span> <!-- Línea divisoria -->
+                    </div>
+                    <div class="input-group">
+                        <input type="number" class="form-control text-center" id="den2" placeholder="Denominador" 
+                            style="background-color: #434343; color: azure; width: 40%;">
+                    </div>
+                    
+                </div>
+
+                <button type="button" class="btn btn-primary" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);" onclick="calculateFraction()">Calcular</button>
+            </form>
+
+            <div class="mt-3">
+                <p id="fractionResult" class="card-text">Resultado: --</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+      <h1 class="titulo2">Conversores</h1>
+      <h4 class="titulo2">Longitud, masa, volumen, temperatura</h4>
+      <!-- Contenedor 2 -->
+      <div class="container py-5">
+        <div class="row justify-content-center">
+           <!-- Conversor de Longitud -->
+<div class="col-12 col-lg-4">
+    <div class="card box-shadow mx-auto my-5" style="width: 18rem; height: 30rem; overflow: hidden;">
+        <div class="card-body" style="background-color: #343a40; color: aliceblue;">
+            <h5 class="card-title" style="color: aliceblue;">Conversor de Longitud</h5>
+            <hr>
+            <form id="lengthConverter">
+                <div class="mb-3">
+                    <label for="value" class="form-label">Valor:</label>
+                    <input type="number" class="form-control" id="value" placeholder="Ingresa el valor" style="background-color: #434343; color: azure;">
+                </div>
+                <div class="mb-3">
+                    <label for="fromUnit" class="form-label">Desde:</label>
+                    <select class="form-select" id="fromUnit" style="background-color: #434343; color: azure;">
+                        <option value="meters">Metros</option>
+                        <option value="kilometers">Kilómetros</option>
+                        <option value="centimeters">Centímetros</option>
+                        <option value="millimeters">Milímetros</option>
+                        <option value="feet">Pies</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="toUnit" class="form-label">Hasta:</label>
+                    <select class="form-select" id="toUnit" style="background-color: #434343; color: azure;">
+                        <option value="meters">Metros</option>
+                        <option value="kilometers">Kilómetros</option>
+                        <option value="centimeters">Centímetros</option>
+                        <option value="millimeters">Milímetros</option>
+                        <option value="feet">Pies</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);" onclick="handleConvertLength()">Convertir</button>
+            </form>
+            <div class="mt-3">
+                <p id="result" class="card-text">Resultado: --</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Conversor de Masa -->
+<div class="col-12 col-lg-4">
+    <div class="card box-shadow mx-auto my-5" style="width: 18rem; height: 30rem; overflow: hidden;">
+        <div class="card-body" style="background-color: #343a40; color: aliceblue;">
+            <h5 class="card-title" style="color: aliceblue;">Conversor de Masa</h5>
+            <hr>
+            <form id="massConverter">
+                <div class="mb-3">
+                    <label for="massValue" class="form-label">Valor:</label>
+                    <input type="number" class="form-control" id="massValue" placeholder="Ingresa el valor" style="background-color: #434343; color: azure;">
+                </div>
+                <div class="mb-3">
+                    <label for="fromMassUnit" class="form-label">Desde:</label>
+                    <select class="form-select" id="fromMassUnit" style="background-color: #434343; color: azure;">
+                        <option value="grams">Gramos</option>
+                        <option value="kilograms">Kilogramos</option>
+                        <option value="pounds">Libras</option>
+                        <option value="tons">Toneladas</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="toMassUnit" class="form-label">Hasta:</label>
+                    <select class="form-select" id="toMassUnit" style="background-color: #434343; color: azure;">
+                        <option value="grams">Gramos</option>
+                        <option value="kilograms">Kilogramos</option>
+                        <option value="pounds">Libras</option>
+                        <option value="tons">Toneladas</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);" onclick="handleConvertMass()">Convertir</button>
+            </form>
+            <div class="mt-3">
+                <p id="massResult" class="card-text">Resultado: --</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Conversor de Volumen -->
+<div class="col-12 col-lg-4">
+    <div class="card box-shadow mx-auto my-5" style="width: 18rem; height: 30rem; overflow: hidden;">
+        <div class="card-body" style="background-color: #343a40; color: aliceblue;">
+            <h5 class="card-title" style="color: aliceblue;">Conversor de Volumen</h5>
+            <hr>
+            <form id="volumeConverter">
+                <div class="mb-3">
+                    <label for="volumeValue" class="form-label">Valor:</label>
+                    <input type="number" class="form-control" id="volumeValue" placeholder="Ingresa el valor" style="background-color: #434343; color: azure;">
+                </div>
+                <div class="mb-3">
+                    <label for="fromVolumeUnit" class="form-label">Desde:</label>
+                    <select class="form-select" id="fromVolumeUnit" style="background-color: #434343; color: azure;">
+                        <option value="liters">Litros</option>
+                        <option value="milliliters">Mililitros</option>
+                        <option value="cubic_meters">Metros cúbicos</option>
+                        <option value="gallons">Galones</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="toVolumeUnit" class="form-label">Hasta:</label>
+                    <select class="form-select" id="toVolumeUnit" style="background-color: #434343; color: azure;">
+                        <option value="liters">Litros</option>
+                        <option value="milliliters">Mililitros</option>
+                        <option value="cubic_meters">Metros cúbicos</option>
+                        <option value="gallons">Galones</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);" onclick="handleConvertVolume()">Convertir</button>
+                 </form>
+            <div class="mt-3">
+                <p id="volumeResult" class="card-text">Resultado: --</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Conversor de Temperatura -->
+<div class="col-12 col-lg-4">
+    <div class="card box-shadow mx-auto my-5" style="width: 18rem; height: 30rem; overflow: hidden;">
+        <div class="card-body" style="background-color: #343a40; color: aliceblue;">
+            <h5 class="card-title" style="color: aliceblue;">Conversor de Temperatura</h5>
+            <hr>
+            <form id="temperatureConverter">
+                <div class="mb-3">
+                    <label for="tempValue" class="form-label">Valor:</label>
+                    <input type="number" class="form-control" id="tempValue" placeholder="Ingresa la temperatura" style="background-color: #434343; color: azure;">
+                </div>
+                <div class="mb-3">
+                    <label for="fromTempUnit" class="form-label">Desde:</label>
+                    <select class="form-select" id="fromTempUnit" style="background-color: #434343; color: azure;">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="toTempUnit" class="form-label">Hasta:</label>
+                    <select class="form-select" id="toTempUnit" style="background-color: #434343; color: azure;">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);" onclick="handleConvertTemperature()">Convertir</button>
+                   </form>
+            <div class="mt-3">
+                <p id="tempResult" class="card-text">Resultado: --</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>  
+      
+</body>
+</html>

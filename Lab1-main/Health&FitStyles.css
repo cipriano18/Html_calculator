@@ -1,0 +1,116 @@
+.titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: lighter;
+  color: #ffffff;
+  margin-bottom: 1px;
+  margin-top: 20px;
+  
+  flex-grow: 1;
+  text-align: center; 
+}
+
+.titulo2 {
+    font-family: 'Lexend Deca', sans-serif; 
+    font-weight: lighter;
+    color: #ffffff; 
+    text-align: center;
+    margin-bottom: 1px;
+    margin-top: 20px;
+}
+
+@keyframes moverDegradado {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: linear-gradient(90deg, #a7a7a7, #737373, #acacac);
+  background-size: 200% 200%;
+  animation: moverDegradado 5s infinite linear;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.home-button {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.home-button:hover {
+  color: #3e3e3e;
+}
+
+/* Estilos para las tarjetas */
+.card {
+  width: 18rem;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el cuerpo de las tarjetas */
+.card-body {
+  background-color: #343a40;
+  color: white; /* Asegura que todo el texto sea blanco */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Asegurar que todos los textos dentro del contenedor sean blancos */
+.card-body h5,
+.card-body label,
+.card-body p {
+  color: white;
+}
+
+/* Estilos para los inputs */
+.form-control {
+  background-color: #434343;
+  color: azure;
+  border: 1px solid #6c757d;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Estilos para los botones */
+/* Estilos generales para todos los botones */
+button {
+  background-color: #a7a7a7 !important;
+  border-color: #a7a7a7 !important;
+  width: 100%;
+  color: white !important;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #737373 !important;
+  border-color: #737373 !important;
+}
+
